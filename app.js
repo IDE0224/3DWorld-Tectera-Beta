@@ -36,6 +36,7 @@ app.use(session({
   saveUninitialized: false,
   store: new sessionStore({ db: './database/sessions.db', dir: '.' })
 }));
+
 app.use(passport.authenticate('session'));
 app.use(function (req, res, next) {
   var msgs = req.session.messages || [];
