@@ -3,6 +3,5 @@
 # Start
 if [[ $(uname -s) == Linux* ]]; then
   sudo node app.js
-else
-  npm start
+else npm start
 fi
