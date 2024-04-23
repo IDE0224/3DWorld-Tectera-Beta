@@ -21,7 +21,6 @@ email.setApiKey("SG.RIrwgRz_S1O_ZoARmx1QDQ.TdSsNQLtCOZV0zzZAKj0bqt5ADYl_u4LYmOQu
 
 // Verify user password via database
 passport.use(new password(function verify(username, password, cb) {
-	
   // Query user
   username = username.toLowerCase();
   db.get('SELECT * FROM users WHERE username = ?', [username], function(err, row) {
