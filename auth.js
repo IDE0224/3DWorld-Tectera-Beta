@@ -184,7 +184,7 @@ function sendEmail(user, type, token) {
   if (user == null) { console.log("No user"); return false; }
   if (user.email == null) user.email = user.username;
   console.log("Sending " + type + " email to " + user.email);
-
+	
   // Type
   var link = `${DOMAIN}/confirm?email=${user.email}&token=${token}`;
   var subject = 'Welcome to Drinks';
