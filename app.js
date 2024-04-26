@@ -1,4 +1,4 @@
-// app.js: The main web app file.
+// The main web app file.
 
 // Server port
 const PORT = 80;
