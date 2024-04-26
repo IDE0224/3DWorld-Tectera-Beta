@@ -37,29 +37,29 @@ app.use(session({
   store: new sessionStore({ db: './database/sessions.db', dir: '.' })
 }));
 
-app.use(passport.authenticate('session'));
+app.use(passport.authenticate('session')
 app.use(function (req, res, next) {
-  var msgs = req.session.messages || [];
-  res.locals.messages = msgs;
-  res.locals.hasMessages = !!msgs.length;
-  req.session.messages = [];
+  var msgs = req.session.messages || []
+  res.locals.messages = msgs
+  res.locals.hasMessages = !!msgs.length
+  req.session.messages = []
   next();
 });
 
 // CSRF
-app.use(csrf());
+app.use(csrf())
 app.use(function (req, res, next) {
-  res.locals.csrfToken = req.csrfToken();
-  next();
-});
+  res.locals.csrfToken = req.csrfToken()
+  next()
+})
 
 // Routes
-app.use('/', require('./index.js'));
-app.use('/', require('./auth.js'));
+app.use('/', require('./index.js'))
+app.use('/', require('./auth.js'))
 
 // Init
 runApp(app);
-initSocketIO(server, database, ai);
+initSocketIO(server, database, ai)
 
 // Errors
 app.use(function (req, res, next) {
@@ -67,7 +67,7 @@ app.use(function (req, res, next) {
 });
 app.use(function (err, req, res, next) {
   res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  res.locals.error = req.app.get('env') === 'development' ? err : {}
   res.status(err.status || 500);
   res.render('error');
 });
