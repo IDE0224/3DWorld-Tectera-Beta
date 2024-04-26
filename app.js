@@ -11,23 +11,23 @@ var bodyParser = require('body-parser')
 var passport = require('passport')
 var session = require('express-session')
 var sessionStore = require('connect-sqlite3')(session)
-var path = require('path');
-var csrf = require('csurf');
+var path = require('path')
+var csrf = require('csurf')
 
 // App files
-var runApp = require("./app/run.js");
-var initSocketIO = require("./app/socketio.js");
-var ai = require("./app/ai.js");
-var database = require("./database.js");
+var runApp = require("./app/run.js")
+var initSocketIO = require("./app/socketio.js")
+var ai = require("./app/ai.js")
+var database = require("./database.js")
 
 // Web server
-var app = express();
-var server = http.createServer(app);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.json());
+var app = express()
+var server = http.createServer(app)
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.json())
 
 // User login sessions
 app.use(session({
