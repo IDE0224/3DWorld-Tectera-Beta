@@ -1,5 +1,3 @@
-// The main web app file.
-
 // Server port
 const PORT = 80
 
