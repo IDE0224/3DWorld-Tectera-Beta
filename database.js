@@ -29,15 +29,6 @@ db.serialize(function() {
     login DATE \
   )");
 
-  // Update users table
-  //db.run("ALTER TABLE users ADD COLUMN token TEXT");
-
-  // Update user
-  //db.run('UPDATE users SET username=? WHERE username=?', ["admin@drinks.chat", "admin"]);
-
-  // Clean users
-  //db.run("DELETE FROM users WHERE username=''");
-
   // Create times table
   db.run("CREATE TABLE IF NOT EXISTS times ( \
     owner_id INTEGER, \
